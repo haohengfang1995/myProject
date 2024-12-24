@@ -61,9 +61,9 @@ public class RoomRepositoryJdbcImpl implements RoomRepositoryJdbc{
 
 	@Override
 	public void addRoom(Room room) {
-		String sql = "insert into room(buy_user_id, sale_user_id, product_id, room_date, product_name, product_place, product_price) values(?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into room(buy_user_id, sale_user_id, product_id, room_date, product_name, product_place, product_price, buy_user_name, sale_user_name, product_photo, pass_Key) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try {
-			int rowcount = jdbcTemplate.update(addRoomSql, room.getBuyUserId(), room.getSaleUserId(), room.getProductId(), room.getRoomDate(), room.getProductName(), room.getProductPlace(), room.getProductPrice());
+			int rowcount = jdbcTemplate.update(addRoomSql, room.getBuyUserId(), room.getSaleUserId(), room.getProductId(), room.getRoomDate(), room.getProductName(), room.getProductPlace(), room.getProductPrice(), room.getBuyUserName(), room.getSaleUserName(), room.getProductPhoto(), room.getPassKey());
 			if(rowcount != 1) {
 				throw new RuntimeException("新增失敗");
 			}

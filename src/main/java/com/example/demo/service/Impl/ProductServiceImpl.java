@@ -67,7 +67,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<ProductDto> findProdcutByLow() {
+	public List<ProductDto> findProductByLow() {
 		List<ProductDto> productDtos = productRepositoyJdbc.findProductByLow().stream()
 										.map(e -> productMapper.toDto(e))
 										.collect(Collectors.toList());
@@ -100,7 +100,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public List<ProductDto> findProductbyIdolName(String idolName) {
-		List<ProductDto> productDtos = productRepositoyJdbc.findProductbyIdolName(idolName).stream()
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByIdolName(idolName).stream()
 										.map(productMapper :: toDto)
 										.collect(Collectors.toList());
 		return productDtos;
@@ -131,11 +131,94 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<ProductDto> findProductBySerch(String message) {
+	public List<ProductDto> findProductBySearch(String message) {
 		List<ProductDto> productDtos = productRepositoyJdbc.findProductBySerch(message).stream()
 										.map(productMapper :: toDto)
 										.collect(Collectors.toList());
 		
+		return productDtos;
+	}
+	
+	
+
+	@Override
+	public List<ProductDto> findProductByHighNoSelf(Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByHighNoSelf(userId).stream()
+										.map(e -> productMapper.toDto(e))
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByLowNoSelf(Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByLowNoSelf(userId).stream()
+										.map(productMapper :: toDto)
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByPlaceNoself(String productPlace, Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByPlaceNoSelf(productPlace, userId).stream()
+										.map(productMapper :: toDto)
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByNewNoSelf(Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByNewNoSelf(userId).stream()
+										.map(e -> productMapper.toDto(e))
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByOldNoSelf(Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByOldNoSelf(userId).stream()
+										.map(productMapper :: toDto)
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductbyIdolNameNoSelf(String idolName, Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByIdolNameNoSelf(idolName, userId).stream()
+										.map(productMapper :: toDto)
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByGenderNoSelf(String gender, Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByGenderNoSelf(gender, userId).stream()
+										.map(e -> productMapper.toDto(e))
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByTypeNoSelf(String productType, Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByTypeNoSelf(productType, userId).stream()
+										.map(productMapper :: toDto)
+										.collect(Collectors.toList());
+		System.out.println("serviceimpl:" + productDtos);
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductByTagNoSelf(String tag, Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductByTagNoSelf(tag, userId).stream()
+										.map(e -> productMapper.toDto(e))
+										.collect(Collectors.toList());
+		return productDtos;
+	}
+
+	@Override
+	public List<ProductDto> findProductBySearchNoSelf(String message, Integer userId) {
+		List<ProductDto> productDtos = productRepositoyJdbc.findProductBySerchNoSelf(message, userId).stream()
+										.map(productMapper :: toDto)
+										.collect(Collectors.toList());
 		return productDtos;
 	}
 

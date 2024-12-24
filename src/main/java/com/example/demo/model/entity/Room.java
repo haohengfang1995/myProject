@@ -44,4 +44,16 @@ public class Room {
 	@Column(nullable = true)
 	private String productPrice;
 	
+	@Column(nullable = true)
+	private String buyUserName;
+	
+	@Column(nullable = true)
+	private String saleUserName;
+	
+	@Column(nullable = true)
+	private String productPhoto;
+	
+	@Column(nullable = true)
+	private String passKey;
+	
 }

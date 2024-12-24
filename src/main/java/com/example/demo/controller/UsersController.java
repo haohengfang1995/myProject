@@ -54,7 +54,7 @@ public class UsersController {
 		String userPhone = userDto.getUserPhone();
 		System.out.println(userPhone);
 		userService.updateUser(userId, userPhone, userEmail);
-		return "forward:/";
+		return "redirect:/product";
 	}
 	
 	//修改密碼

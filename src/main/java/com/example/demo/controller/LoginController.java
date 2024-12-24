@@ -74,7 +74,7 @@ public class LoginController {
 			session.setAttribute("redirectURL", null);//清空url資料‹
 			return "redirect:" + url;
 		}else {
-			return "result";
+			return "redirect:/product";
 		}
 	}
 }

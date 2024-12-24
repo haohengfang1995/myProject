@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.dto.UserDto;
 import com.example.demo.service.UserService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -27,10 +31,18 @@ public class UserAddController {
 	}
 	
 	@PostMapping("/user")
-	public String addUsers(Model model,@ModelAttribute UserDto userDto) {
-		System.out.println(userDto);
+	public String addUsers(Model model,HttpServletRequest request, @ModelAttribute UserDto userDto, @RequestParam Integer randomPassword) {
+		HttpSession session = request.getSession();
+		Integer userRandomPassword = (Integer)session.getAttribute("randomPassword");
+		System.out.println(userRandomPassword);
+		System.out.println(randomPassword);
+		if(!userRandomPassword.equals(randomPassword)) {
+			model.addAttribute("message", "驗證碼錯誤");
+			return "error";
+		}
+//		System.out.println(userDto);
 		userService.addUser(userDto);
-		return "redirect:/add";
+		return "redirect:/product";
 	}
 
 }

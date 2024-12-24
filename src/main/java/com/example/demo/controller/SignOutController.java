@@ -19,7 +19,7 @@ public class SignOutController{
 //		session.invalidate();//所有session 失效 Id會重發
 		session.setAttribute("userCert", null);
 		model.addAttribute("message", "登出成功");
-		return "result";
+		return "redirect:/product";
 			
 	}
 	

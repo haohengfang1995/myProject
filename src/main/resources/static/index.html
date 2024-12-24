@@ -24,5 +24,47 @@
 		</td>
 
 	</table>
+	
+	
+	
+		<table class="pure-table pure-table-bordered">
+			<thead>
+				<tr>
+					<th>圖片</th>
+					<th>名稱</th>
+					<th>價格</th>
+					<th>數量</th>
+					<th>上架日期</th>
+					<th>地點</th>
+					<th>偶像名稱</th>
+					<th>團體</th>
+					<th>種類</th>
+					<th>標籤</th>
+					<th>查看</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="productDto" items="${ productDtos }">
+					<tr>
+						<td><img src="/uploads/${ productDto.productPhoto }"
+							alt="productPhoto" width="100" height="100"></td>
+						<td>${ productDto.productName }</td>
+						<td>${ productDto.productPrice }</td>
+						<td>${ productDto.productNum }</td>
+						<td><fmt:formatDate value="${ productDto.productDate }"
+								pattern="yyyy/MM/dd" /></td>
+						<td><a href="/product/place/${ productDto.productPlace }">${ productDto.productPlace }</a></td>
+						<td><a href="/product/idolname/${ productDto.idolName }">${ productDto.idolName }</a></td>
+						<td><a href="/product/gender/${ productDto.gender }">${ productDto.gender }</a></td>
+						<td><a href="/product/type/${ productDto.productType }">${ productDto.productType }</a></td>
+						<td><a href="/product/tag/${ productDto.tag }">${ productDto.tag }</a></td>
+						<td><a class="button-error pure-button"
+							href="/product/productsolo/${ productDto.productId }">瞭解更多</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

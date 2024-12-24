@@ -28,6 +28,14 @@ public class RoomDto {
 	
 	private String productPrice;
 	
+	private String buyUserName;
+	
+	private String saleUserName;
+	
+	private String productPhoto;
+	
+	private String passKey;
+	
 	private List<String> message;
 	
 }
