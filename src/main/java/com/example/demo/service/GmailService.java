@@ -50,7 +50,7 @@ public class GmailService {
 
 	    public static Gmail getGmailService() throws Exception {
 //	    	clearStoredTokens();
-	        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(GmailService.class.getResourceAsStream("/client_secret_181699463571-lld8l3hk8ccorcsprod1llkiokpj98as.apps.googleusercontent.com.json")));
+	        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(GmailService.class.getResourceAsStream("/credentials.json")));
 	        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
 	                GoogleNetHttpTransport.newTrustedTransport(), JSON_FACTORY, clientSecrets, SCOPES)
 	                .setAccessType("offline")
